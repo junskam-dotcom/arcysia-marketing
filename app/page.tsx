@@ -70,7 +70,7 @@ function ReelCard({ item, motion }: { item: typeof reels[number]; motion: boolea
   return <article className="reel-item">
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger className="reel-trigger" aria-label={`Odtwórz: ${item.title}`}>
-        <span className="reel-top"><span>{item.category}</span><span>{String(item.id).padStart(2,'0')} / {reels.length}</span></span>
+        <span className="reel-top"><span className={item.category==='WYDARZENIA' ? 'event-category' : undefined}>{item.category}</span><span>{String(item.id).padStart(2,'0')} / {reels.length}</span></span>
         <Preview id={item.id} motion={motion && !open}/>
         <span className="reel-title">{item.title}<ArrowUpRight size={20}/></span>
         <span className="reel-note">{item.note}</span>
