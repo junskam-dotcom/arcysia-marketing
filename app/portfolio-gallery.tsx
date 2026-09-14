@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { ArrowLeft, ArrowRight, Play, X, Maximize2 } from 'lucide-react';
 import { Dialog, DialogTrigger, DialogContent, DialogTitle, DialogDescription, DialogClose } from '@/components/ui/dialog';
 import { reels, posts, postGroups, reelPurposes, postPurposes, postIndustry } from './portfolio-data';
-const reelPath = (id: number, ext: string) => `/media/reel-${String(id).padStart(2, '0')}.${ext}`;
+const reelPath = (id: number, ext: string) => `media/reel-${String(id).padStart(2, '0')}.${ext}`;
 const mixedReelOrder = [17, 13, 19, 1, 7, 15, 4, 10, 14, 2, 8, 18, 5, 16, 3, 9, 11, 6, 12];
 const mixedReels = mixedReelOrder.map(id => reels.find(item => item.id === id)).filter((item): item is typeof reels[number] => Boolean(item));
 function ProjectFacts({ industry, purpose, scope }: { industry:string;purpose:string;scope:string }) {
