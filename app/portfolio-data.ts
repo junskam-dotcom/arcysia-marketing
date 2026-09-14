@@ -38,19 +38,18 @@ export const posts = [
   { id: 16, title: 'Wcześniejsza spłata kredytu', note: 'Tajsner · post edukacyjny', alt: 'Projekt graficzny Tajsner dotyczący wcześniejszej spłaty kredytu', src: '/media/post-16.webp' },
   { id: 17, title: 'Zanim podpiszesz', note: 'Tajsner · post edukacyjny', alt: 'Projekt graficzny Tajsner Bank proponuje ugodę. Zadaj sobie 4 pytania, zanim podpiszesz', src: '/media/post-17.webp' },
   { id: 18, title: 'Warto znać swoje prawa', note: 'Tajsner · post o usługach kancelarii', alt: 'Post Tajsner Masz kredyt? Warto znać swoje prawa, z portretem kobiety rozmawiającej przez telefon', src: '/media/post-18.webp' },
-  { id: 19, title: 'Najważniejszy kadr? Wnętrze.', note: 'Wnętrza · zabudowa na wymiar', alt: 'Grafika z jasną zabudową w korytarzu i hasłem Najważniejszy kadr', src: '/media/post-19.jpg' },
-  { id: 20, title: 'Wymarzone meble na lata', note: 'Wnętrza · pokój dziecięcy', alt: 'Grafika z białą zabudową w pokoju dziecięcym i hasłem Wymarzone meble zostają', src: '/media/post-20.jpg' },
+  { id: 19, title: 'Najważniejszy kadr? Wnętrze.', note: 'Meble na wymiar · zabudowa stolarska', alt: 'Grafika z jasną zabudową w korytarzu i hasłem Najważniejszy kadr', src: '/media/post-19.jpg' },
+  { id: 20, title: 'Wymarzone meble na lata', note: 'Meble na wymiar · pokój dziecięcy', alt: 'Grafika z białą zabudową w pokoju dziecięcym i hasłem Wymarzone meble zostają', src: '/media/post-20.jpg' },
   { id: 21, title: 'Oczami adwokata', note: 'Marka osobista · komunikacja ekspercka', alt: 'Grafika z portretem adwokatki i hasłem Oczami adwokata', src: '/media/post-21.jpg' },
   { id: 22, title: 'Jak wygląda rozmowa z adwokatem?', note: 'Marka osobista · edukacja prawna', alt: 'Grafika o przebiegu rozmowy z adwokatem', src: '/media/post-22.jpg' },
   { id: 23, title: 'Kto Cię rozlicza?', note: 'Marka osobista · komunikacja biznesowa', alt: 'Grafika z pytaniem Kto Cię rozlicza i portretem ekspertki', src: '/media/post-23.jpg' },
   { id: 24, title: 'Można nie znaczy warto', note: 'Marka osobista · komunikacja ekspercka', alt: 'Grafika z hasłem Można nie znaczy warto i portretem ekspertki', src: '/media/post-24.jpg' },
 ];
 export const postGroups = [
-  { name: 'Beauty', subtitle: 'Estetyka i komunikacja zabiegów', from: 1, to: 2 },
-  { name: 'Wnętrza na wymiar', subtitle: 'Realizacje, detale i ludzie za marką', from: 3, to: 9 },
-  { name: 'Marka osobista', subtitle: 'Marzena Tajsner · spójny wizerunek ekspercki', from: 10, to: 14 },
-  { name: 'Kancelaria', subtitle: 'Tajsner · edukacja i komunikacja usług', from: 15, to: 18 },
-  { name: 'Najnowsze grafiki', subtitle: 'Kolejne realizacje do portfolio', from: 19, to: 24 },
+  { name: 'Beauty', subtitle: 'Estetyka i komunikacja zabiegów', ids: [1, 2] },
+  { name: 'Meble na wymiar', subtitle: 'Firma stolarska · realizacje, detale i ludzie za marką', ids: [3, 4, 5, 6, 7, 8, 9, 19, 20] },
+  { name: 'Marka osobista', subtitle: 'Marzena Tajsner · spójny wizerunek ekspercki', ids: [10, 11, 12, 13, 14, 21, 22, 23, 24] },
+  { name: 'Kancelaria', subtitle: 'Tajsner · edukacja i komunikacja usług', ids: [15, 16, 17, 18] },
 ];
 
 export const reelPurposes: Record<number,string> = {
@@ -80,9 +79,8 @@ export const postPurposes: Record<number,string> = {
 };
 export function postIndustry(id:number) {
   if (id <= 2) return 'Beauty';
-  if (id <= 9) return 'Branża meblarska';
-  if (id <= 14) return 'Marzena Tajsner · marka osobista';
-  if (id <= 20) return 'Branża meblarska';
-  if (id <= 24) return 'Marka osobista · prawo i biznes';
+  if (id <= 9 || id === 19 || id === 20) return 'Firma stolarska · meble na wymiar';
+  if (id <= 14 || id >= 21) return 'Marka osobista · prawo i biznes';
+  if (id <= 24) return 'Tajsner · kancelaria';
   return 'Tajsner · kancelaria';
 }
