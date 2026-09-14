@@ -15,6 +15,9 @@ export const reels = [
   { id: 14, title: 'Wnętrza w ruchu', category: 'WNĘTRZA', note: 'Meble na wymiar · realizacja 01' },
   { id: 15, title: 'Bliżej detali', category: 'WNĘTRZA', note: 'Meble na wymiar · realizacja 02' },
   { id: 16, title: 'Przestrzeń z charakterem', category: 'WNĘTRZA', note: 'Meble na wymiar · realizacja 03' },
+  { id: 17, title: 'Nowy materiał 01', category: 'NOWA ROLKA', note: 'Materiał wideo do social mediów' },
+  { id: 18, title: 'Nowy materiał 02', category: 'NOWA ROLKA', note: 'Materiał wideo do social mediów' },
+  { id: 19, title: 'Nowy materiał 03', category: 'NOWA ROLKA', note: 'Materiał wideo do social mediów' },
 ];
 export const posts = [
   { id: 1, title: 'Beauty, od pierwszego spojrzenia.', note: 'Grafika informacyjna · RF Double Tite', alt: 'Grafika porównująca skórę przed i tuż po zabiegu RF Double Tite', src: '/media/post-01.webp' },
@@ -35,12 +38,19 @@ export const posts = [
   { id: 16, title: 'Wcześniejsza spłata kredytu', note: 'Tajsner · post edukacyjny', alt: 'Projekt graficzny Tajsner dotyczący wcześniejszej spłaty kredytu', src: '/media/post-16.webp' },
   { id: 17, title: 'Zanim podpiszesz', note: 'Tajsner · post edukacyjny', alt: 'Projekt graficzny Tajsner Bank proponuje ugodę. Zadaj sobie 4 pytania, zanim podpiszesz', src: '/media/post-17.webp' },
   { id: 18, title: 'Warto znać swoje prawa', note: 'Tajsner · post o usługach kancelarii', alt: 'Post Tajsner Masz kredyt? Warto znać swoje prawa, z portretem kobiety rozmawiającej przez telefon', src: '/media/post-18.webp' },
+  { id: 19, title: 'Najważniejszy kadr? Wnętrze.', note: 'Wnętrza · zabudowa na wymiar', alt: 'Grafika z jasną zabudową w korytarzu i hasłem Najważniejszy kadr', src: '/media/post-19.jpg' },
+  { id: 20, title: 'Wymarzone meble na lata', note: 'Wnętrza · pokój dziecięcy', alt: 'Grafika z białą zabudową w pokoju dziecięcym i hasłem Wymarzone meble zostają', src: '/media/post-20.jpg' },
+  { id: 21, title: 'Oczami adwokata', note: 'Marka osobista · komunikacja ekspercka', alt: 'Grafika z portretem adwokatki i hasłem Oczami adwokata', src: '/media/post-21.jpg' },
+  { id: 22, title: 'Jak wygląda rozmowa z adwokatem?', note: 'Marka osobista · edukacja prawna', alt: 'Grafika o przebiegu rozmowy z adwokatem', src: '/media/post-22.jpg' },
+  { id: 23, title: 'Kto Cię rozlicza?', note: 'Marka osobista · komunikacja biznesowa', alt: 'Grafika z pytaniem Kto Cię rozlicza i portretem ekspertki', src: '/media/post-23.jpg' },
+  { id: 24, title: 'Można nie znaczy warto', note: 'Marka osobista · komunikacja ekspercka', alt: 'Grafika z hasłem Można nie znaczy warto i portretem ekspertki', src: '/media/post-24.jpg' },
 ];
 export const postGroups = [
   { name: 'Beauty', subtitle: 'Estetyka i komunikacja zabiegów', from: 1, to: 2 },
   { name: 'Wnętrza na wymiar', subtitle: 'Realizacje, detale i ludzie za marką', from: 3, to: 9 },
   { name: 'Marka osobista', subtitle: 'Marzena Tajsner · spójny wizerunek ekspercki', from: 10, to: 14 },
   { name: 'Kancelaria', subtitle: 'Tajsner · edukacja i komunikacja usług', from: 15, to: 18 },
+  { name: 'Najnowsze grafiki', subtitle: 'Kolejne realizacje do portfolio', from: 19, to: 24 },
 ];
 
 export const reelPurposes: Record<number,string> = {
@@ -52,6 +62,7 @@ export const reelPurposes: Record<number,string> = {
   11: 'Przekaz oparty na animowanej typografii', 12: 'Prezentacja społeczności Biz4sis',
   13: 'Relacja z Polka Pilates', 14: 'Prezentacja mebli na wymiar',
   15: 'Pokazanie detali wnętrza', 16: 'Prezentacja realizacji wnętrzarskiej',
+  17: 'Nowy materiał wideo w portfolio', 18: 'Nowy materiał wideo w portfolio', 19: 'Nowy materiał wideo w portfolio',
 };
 export const postPurposes: Record<number,string> = {
   1: 'Informacja o wyglądzie skóry po zabiegu', 2: 'Komunikacja promocji',
@@ -63,10 +74,15 @@ export const postPurposes: Record<number,string> = {
   13: 'Treść o perspektywie biznesowej i prawnej', 14: 'Komunikacja nowego etapu zawodowego',
   15: 'Informacja o lokalizacji kancelarii', 16: 'Treść edukacyjna o kredytach',
   17: 'Treść edukacyjna o ugodach bankowych', 18: 'Prezentacja usług kancelarii',
+  19: 'Prezentacja zabudowy wnętrza', 20: 'Prezentacja mebli do pokoju dziecięcego',
+  21: 'Komunikacja profilu prawniczego', 22: 'Edukacja o rozmowie z adwokatem',
+  23: 'Treść o odpowiedzialności w biznesie', 24: 'Treść o podejmowaniu decyzji',
 };
 export function postIndustry(id:number) {
   if (id <= 2) return 'Beauty';
   if (id <= 9) return 'Branża meblarska';
   if (id <= 14) return 'Marzena Tajsner · marka osobista';
+  if (id <= 20) return 'Branża meblarska';
+  if (id <= 24) return 'Marka osobista · prawo i biznes';
   return 'Tajsner · kancelaria';
 }
