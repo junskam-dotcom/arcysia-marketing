@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import './globals.css';
 export const metadata: Metadata = {
-  title: 'Arcysia Marketing i Eventy · Marcelina Juńska',
-  description: 'Marketing, komunikacja marek i organizacja wydarzeń. Poznaj ofertę i portfolio Marceliny Juńskiej — Arcysia Marketing.',
+  title: 'Arcysia Marketing · Marcelina Juńska',
+  description: 'Strategia, identyfikacja wizualna, social media, rolki i grafiki. Poznaj ofertę i portfolio Marceliny Juńskiej — Arcysia Marketing.',
   icons: { icon: '/favicon.svg' },
 };
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

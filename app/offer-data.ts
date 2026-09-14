@@ -31,6 +31,5 @@ export const steps = [
 ];
 export const faq = [
   { question: 'Czy mogę zlecić tylko część projektu?', answer: 'Tak — możemy współpracować przy wybranym etapie lub całej realizacji.' },
-  { question: 'Czy można połączyć event z promocją?', answer: 'Tak — zakres może obejmować organizację oraz komunikację i materiały z wydarzenia.' },
-  { question: 'Co przesłać do wyceny?', answer: 'Krótki opis projektu, planowany termin, oczekiwany zakres i orientacyjny budżet. Przy wydarzeniu także lokalizację i przewidywaną liczbę uczestników.' },
+  { question: 'Co przesłać do wyceny?', answer: 'Krótki opis projektu, planowany termin, oczekiwany zakres i orientacyjny budżet. Możesz dołączyć linki do obecnych profili i przykłady materiałów.' },
 ];
