@@ -4,6 +4,8 @@ import { ArrowLeft, ArrowRight, Play, X, Maximize2 } from 'lucide-react';
 import { Dialog, DialogTrigger, DialogContent, DialogTitle, DialogDescription, DialogClose } from '@/components/ui/dialog';
 import { reels, posts, postGroups, reelPurposes, postPurposes, postIndustry } from './portfolio-data';
 const reelPath = (id: number, ext: string) => `/media/reel-${String(id).padStart(2, '0')}.${ext}`;
+const mixedReelOrder = [17, 13, 19, 1, 7, 15, 4, 10, 14, 2, 8, 18, 5, 16, 3, 9, 11, 6, 12];
+const mixedReels = mixedReelOrder.map(id => reels.find(item => item.id === id)).filter((item): item is typeof reels[number] => Boolean(item));
 function ProjectFacts({ industry, purpose, scope }: { industry:string;purpose:string;scope:string }) {
   return <dl className="project-facts"><div><dt>Marka / branża</dt><dd>{industry}</dd></div><div><dt>Cel materiału</dt><dd>{purpose}</dd></div><div><dt>Mój zakres</dt><dd>{scope}</dd></div></dl>;
 }
@@ -37,13 +39,13 @@ function PostCard({ item }: { item: typeof posts[number] }) {
 export default function PortfolioGallery({motion}:{motion:boolean}) {
   const track = useRef<HTMLDivElement>(null);
   const [position,setPosition]=useState({first:1,start:true,end:false});
-  function sync(){const el=track.current;if(!el)return;const width=el.querySelector<HTMLElement>('.reel-item')?.offsetWidth||300;setPosition({first:Math.min(reels.length,Math.round(el.scrollLeft/(width+24))+1),start:el.scrollLeft<=4,end:el.scrollLeft+el.clientWidth>=el.scrollWidth-4});}
+  function sync(){const el=track.current;if(!el)return;const width=el.querySelector<HTMLElement>('.reel-item')?.offsetWidth||300;setPosition({first:Math.min(mixedReels.length,Math.round(el.scrollLeft/(width+24))+1),start:el.scrollLeft<=4,end:el.scrollLeft+el.clientWidth>=el.scrollWidth-4});}
   useEffect(()=>{sync();window.addEventListener('resize',sync);return()=>window.removeEventListener('resize',sync);},[]);
   function move(direction:number){const el=track.current;if(!el)return;const width=el.querySelector<HTMLElement>('.reel-item')?.offsetWidth||300;el.scrollBy({left:direction*(width+24),behavior:motion?'smooth':'auto'});}
   return <section className="portfolio-section section-pad" id="portfolio" aria-labelledby="portfolio-title">
     <div className="section-heading reveal"><span className="eyebrow">01 / PORTFOLIO MARKETINGOWE</span><div className="heading-row"><h2 id="portfolio-title">Pomysły, które<br/>stały się <em>treścią.</em></h2><p>Rolki i grafiki dla marek z branży beauty, wnętrzarskiej, biznesowej i nie tylko.</p></div></div>
-    <div id="rolki" className="gallery-toolbar"><h3>Rolki i wideo <span>{reels.length}</span></h3><div className="gallery-controls"><span aria-live="polite">{String(position.first).padStart(2,'0')} / {reels.length}</span><button onClick={()=>move(-1)} disabled={position.start} aria-label="Poprzednie rolki"><ArrowLeft size={21}/></button><button onClick={()=>move(1)} disabled={position.end} aria-label="Następne rolki"><ArrowRight size={21}/></button></div></div>
-    <div className="reels-track" ref={track} tabIndex={0} onScroll={sync} role="region" aria-label="Galeria 16 rolek — przewiń w bok">{reels.map(item=><ReelCard key={item.id} item={item} motion={motion}/>)}</div>
+    <div id="rolki" className="gallery-toolbar"><h3>Rolki i wideo <span>{mixedReels.length}</span></h3><div className="gallery-controls"><span aria-live="polite">{String(position.first).padStart(2,'0')} / {mixedReels.length}</span><button onClick={()=>move(-1)} disabled={position.start} aria-label="Poprzednie rolki"><ArrowLeft size={21}/></button><button onClick={()=>move(1)} disabled={position.end} aria-label="Następne rolki"><ArrowRight size={21}/></button></div></div>
+    <div className="reels-track" ref={track} tabIndex={0} onScroll={sync} role="region" aria-label="Galeria rolek — przewiń w bok">{mixedReels.map(item=><ReelCard key={item.id} item={item} motion={motion}/>)}</div>
     <p className="portfolio-note">Relacje z wydarzeń pokazuję jako materiały marketingowe. Tworzenie contentu i organizacja wydarzenia to odrębne zakresy pracy.</p>
     <div id="posty" className="posts-heading"><h3>Grafiki i posty <span>{posts.length}</span></h3></div>
     {postGroups.map((group,index)=><div key={group.name} className="post-collection"><div className="collection-heading"><div><span className="eyebrow">SERIA {String(index+1).padStart(2,'0')}</span><h4>{group.name}</h4><p>{group.subtitle}</p></div><span className="collection-count">{group.to-group.from+1} {group.to-group.from+1<5?'prace':'prac'}</span></div><div className="posts-grid">{posts.filter(item=>item.id>=group.from&&item.id<=group.to).map(item=><PostCard key={item.id} item={item}/>)}</div></div>)}
