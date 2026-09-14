@@ -15,9 +15,9 @@ export const reels = [
   { id: 14, title: 'Wnętrza w ruchu', category: 'WNĘTRZA', note: 'Meble na wymiar · realizacja 01' },
   { id: 15, title: 'Bliżej detali', category: 'WNĘTRZA', note: 'Meble na wymiar · realizacja 02' },
   { id: 16, title: 'Przestrzeń z charakterem', category: 'WNĘTRZA', note: 'Meble na wymiar · realizacja 03' },
-  { id: 17, title: 'Nowy materiał 01', category: 'NOWA ROLKA', note: 'Materiał wideo do social mediów' },
+  { id: 17, title: 'Lifestyle', category: 'LIFESTYLE', note: 'Materiał wideo do social mediów' },
   { id: 18, title: 'Nowy materiał 02', category: 'NOWA ROLKA', note: 'Materiał wideo do social mediów' },
-  { id: 19, title: 'Nowy materiał 03', category: 'NOWA ROLKA', note: 'Materiał wideo do social mediów' },
+  { id: 19, title: 'Firma stolarska', category: 'WNĘTRZA', note: 'Materiał wideo do social mediów' },
 ];
 export const posts = [
   { id: 1, title: 'Beauty, od pierwszego spojrzenia.', note: 'Grafika informacyjna · RF Double Tite', alt: 'Grafika porównująca skórę przed i tuż po zabiegu RF Double Tite', src: '/media/post-01.webp' },
