@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Play, ArrowUpRight, X } from 'lucide-react';
 import { Dialog, DialogTrigger, DialogContent, DialogTitle, DialogDescription, DialogClose } from '@/components/ui/dialog';
 import { reels } from './portfolio-data';
-const featured = [{ id: 17, label: 'LIFESTYLE' }, { id: 13, label: 'POLKA PILATES' }, { id: 19, label: 'WNĘTRZA' }];
+const featured = [{ id: 17, label: 'LIFESTYLE' }, { id: 13, label: 'POLKA PILATES' }, { id: 19, label: 'FIRMA STOLARSKA' }];
 const path = (id: number, ext: string) => `/media/reel-${String(id).padStart(2,'0')}.${ext}`;
 function FeaturedFilm({ id, label, motion }: { id: number; label: string; motion: boolean }) {
   const [open,setOpen] = useState(false);

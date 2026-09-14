@@ -11,12 +11,12 @@ export const reels = [
   { id: 10, title: 'Złap swój rytm', category: 'WELLNESS', note: 'Joga · wideo' },
   { id: 11, title: 'Od pierwszej sekundy', category: 'WIDEO', note: 'Rolka z animowaną typografią' },
   { id: 12, title: 'Razem znaczy więcej', category: 'WYDARZENIA', note: 'Biz4sis · społeczność' },
-  { id: 13, title: 'Poznaj Polka Pilates', category: 'WELLNESS', note: 'Polka Pilates · relacja' },
+  { id: 13, title: 'Wideo z prelekcji na wydarzeniu Polka Pilates', category: 'WELLNESS', note: 'Polka Pilates · prelekcja na wydarzeniu' },
   { id: 14, title: 'Wnętrza w ruchu', category: 'FIRMA STOLARSKA', note: 'Meble na wymiar · realizacja 01' },
   { id: 15, title: 'Bliżej detali', category: 'FIRMA STOLARSKA', note: 'Meble na wymiar · realizacja 02' },
   { id: 16, title: 'Przestrzeń z charakterem', category: 'FIRMA STOLARSKA', note: 'Meble na wymiar · realizacja 03' },
   { id: 17, title: 'Lifestyle', category: 'LIFESTYLE', note: 'Materiał wideo do social mediów' },
-  { id: 18, title: 'Nowy materiał 02', category: 'FIRMA STOLARSKA', note: 'Meble na wymiar · nowy materiał wideo' },
+  { id: 18, title: 'Porady stolarza (materiał AI)', category: 'FIRMA STOLARSKA', note: 'Firma stolarska · wideo z wykorzystaniem AI' },
   { id: 19, title: 'Firma stolarska', category: 'FIRMA STOLARSKA', note: 'Meble na wymiar · materiał wideo' },
 ];
 export const posts = [
@@ -59,9 +59,9 @@ export const reelPurposes: Record<number,string> = {
   7: 'Treść ekspercka dla odbiorców biznesowych', 8: 'Treść ekspercka dla odbiorców biznesowych',
   9: 'Treść ekspercka dla odbiorców biznesowych', 10: 'Prezentacja zajęć jogi',
   11: 'Przekaz oparty na animowanej typografii', 12: 'Prezentacja społeczności Biz4sis',
-  13: 'Relacja z Polka Pilates', 14: 'Prezentacja mebli na wymiar',
+  13: 'Relacja z prelekcji na wydarzeniu Polka Pilates', 14: 'Prezentacja mebli na wymiar',
   15: 'Pokazanie detali wnętrza', 16: 'Prezentacja realizacji wnętrzarskiej',
-  17: 'Nowy materiał wideo w portfolio', 18: 'Nowy materiał wideo w portfolio', 19: 'Nowy materiał wideo w portfolio',
+  17: 'Nowy materiał wideo w portfolio', 18: 'Porady stolarza w formie materiału AI', 19: 'Nowy materiał wideo w portfolio',
 };
 export const postPurposes: Record<number,string> = {
   1: 'Informacja o wyglądzie skóry po zabiegu', 2: 'Komunikacja promocji',
