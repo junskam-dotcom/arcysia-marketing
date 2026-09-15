@@ -121,3 +121,6 @@ section[id]{scroll-margin-top:6.5rem}
   .site-nav a:hover{background:var(--cashmere);border-color:transparent}
 }
 @media(max-width:420px){.site-header{padding-left:5%;padding-right:5%}.site-nav{right:5%;left:5%}.wordmark{font-size:2rem}}
+
+/* Orange accents for editorial italic headings. */
+h1 em,h2 em,h3 em{color:var(--orange)}

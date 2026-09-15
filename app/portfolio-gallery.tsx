@@ -45,6 +45,6 @@ export default function PortfolioGallery({motion}:{motion:boolean}) {
     <p className="portfolio-note">Twoja marka ma głos. Ja pomagam go pokazać i usłyszeć.</p>
     <div id="posty" className="posts-heading"><h3>Grafiki i posty <span>{posts.length}</span></h3></div>
     {postGroups.map((group,index)=><div key={group.name} className="post-collection"><div className="collection-heading"><div><span className="eyebrow">SERIA {String(index+1).padStart(2,'0')}</span><h4>{group.name}</h4><p>{group.subtitle}</p></div><span className="collection-count">{group.ids.length} {group.ids.length<5?'prace':'prac'}</span></div><HorizontalGallery label={group.name}>{posts.filter(item=>group.ids.includes(item.id)).map(item=><PostCard key={item.id} item={item}/>)}</HorizontalGallery></div>)}
-    <div className="portfolio-cta"><h3>Nie wiesz, od czego zacząć?<br/><em>Opowiedz mi o swojej marce.</em></h3><a className="button button-dark" href="#kontakt">Zapytaj o współpracę <ArrowRight size={20}/></a></div>
+    <div className="portfolio-cta"><h3>Nie wiesz, od czego zacząć?<br/><em>Opowiedz mi o swojej marce.</em></h3><a className="button button-orange" href="#kontakt">Zapytaj o współpracę <ArrowRight size={20}/></a></div>
   </section>;
 }
