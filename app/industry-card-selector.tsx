@@ -21,9 +21,9 @@ function CardDetails({ card, industry, needLabel }: { card: IndustryCard; indust
     <dl className="industry-card-fields">
       <div><dt>Wskazówka</dt><dd>{card.hint}</dd></div>
       <div><dt>Temat publikacji</dt><dd>{card.topic}</dd></div>
-      <div><dt>Hook</dt><dd>{card.hook}</dd></div>
+      <div><dt>Początek publikacji</dt><dd>{card.hook}</dd></div>
       <div><dt>Tekst na ekran</dt><dd>„{card.screenText}”</dd></div>
-      <div><dt>CTA</dt><dd>{card.cta}</dd></div>
+      <div><dt>Zachęta do działania</dt><dd>{card.cta}</dd></div>
       <div><dt>Ujęcia lub grafika</dt><dd>{card.visual}</dd></div>
     </dl>
   </div>;
@@ -87,12 +87,12 @@ export default function IndustryCardSelector() {
     <div className="industry-tool-intro reveal">
       <span className="eyebrow">03 / POMYSŁY DOPASOWANE DO TWOJEJ MARKI</span>
       <h2 id="industry-tool-title">Wybierz branżę.<br/><em>Znajdź swój kierunek.</em></h2>
-      <p>Wskaż branżę i potrzebę komunikacyjną, a wybiorę dla Ciebie trzy konkretne karty z ręcznie przygotowanej bazy. Każda karta zawiera temat, hook, format, CTA i pomysł na ujęcia.</p>
-      <span className="industry-tool-subtitle">{preparedCardCount} kart dla branż · bez generatora AI · gotowe do rozwinięcia w publikację</span>
+      <p>Zobacz, jak łączę temat publikacji z potrzebą marki. Wybierz branżę i cel, a potem odkryj pomysł z bazy: z początkiem tekstu, formatem i propozycją ujęć.</p>
+      <span className="industry-tool-subtitle">{preparedCardCount} pomysłów na posty, rolki i karuzele</span>
     </div>
 
     {!started && <div className="industry-tool-start">
-      <div><span className="industry-tool-icon"><Sparkles size={21}/></span><h3>Znajdź pomysł, który pasuje do Twojej pracy.</h3><p>Zaczniesz od branży, potem wybierzesz cel komunikacyjny. Na końcu odkryjesz trzy zakryte karty i wybierzesz tę, od której chcesz zacząć.</p></div>
+      <div><span className="industry-tool-icon"><Sparkles size={21}/></span><h3>Znajdź pomysł, który pasuje do Twojej pracy.</h3><p>Wybierz branżę, wskaż, czego potrzebujesz, i odkryj jedną z trzech kart.</p></div>
       <button className="button button-dark" type="button" onClick={start}>Wybierz branżę <ArrowRight size={19}/></button>
     </div>}
 
@@ -100,7 +100,7 @@ export default function IndustryCardSelector() {
       <div className="industry-tool-progress"><span className={step === 'industry' ? 'is-current' : 'is-done'}>01 <b>Branża</b></span><i/><span className={step === 'need' ? 'is-current' : step === 'cards' ? 'is-done' : ''}>02 <b>Potrzeba</b></span><i/><span className={step === 'cards' ? 'is-current' : ''}>03 <b>Karta</b></span></div>
 
       {step === 'industry' && <div className="industry-step-card">
-        <div className="industry-step-heading"><div><span className="eyebrow">KROK 01</span><h3>W jakiej branży działasz?</h3><p>Wszystkie opcje są widoczne od razu. Możesz też zacząć pisać, aby zawęzić listę.</p></div><span className="industry-count">{industryOptions.length} branż</span></div>
+        <div className="industry-step-heading"><div><span className="eyebrow">KROK 01</span><h3>W jakiej branży działasz?</h3><p>Kliknij swoją branżę lub znajdź ją po nazwie.</p></div><span className="industry-count">{industryOptions.length} branż</span></div>
         <label className="industry-search"><Search size={18}/><span className="sr-only">Szukaj branży</span><input value={query} onChange={event => setQuery(event.target.value)} placeholder="Zacznij wpisywać swoją branżę…" type="search" /></label>
         <div className="industry-grid" role="list" aria-label="Lista branż">
           {filteredIndustries.map(option => <button className={`industry-tile${industry === option.value ? ' is-selected' : ''}`} key={option.value} type="button" onClick={() => chooseIndustry(option.value)}><span className="industry-tile-symbol" aria-hidden="true">{option.icon}</span><span>{option.label}</span><ArrowRight size={16}/></button>)}
@@ -119,9 +119,10 @@ export default function IndustryCardSelector() {
       {step === 'cards' && <div className="industry-step-card cards-step-card">
         <div className="industry-step-heading"><div><span className="eyebrow">KROK 03</span><h3>Wybierz jedną z trzech kart.</h3><p>Każda karta jest dopasowana do branży <strong>{displayIndustry}</strong> i potrzeby <strong>{needLabel.toLowerCase()}</strong>. Kliknij, aby ją odkryć.</p></div><span className="industry-selected-pill">{needLabel}</span></div>
         <div className="covered-cards">{cards.map((card, index) => <button className={`covered-card${selectedCard === card.id ? ' is-open' : ''}`} key={card.id} type="button" onClick={() => setSelectedCard(card.id)} aria-expanded={selectedCard === card.id}><span className="covered-card-number">0{index + 1}</span>{selectedCard === card.id ? <CardDetails card={card} industry={displayIndustry} needLabel={needLabel}/> : <span className="covered-card-closed"><span className="covered-card-lock">✦</span><strong>Karta do odkrycia</strong><small>Kliknij, aby zobaczyć pomysł</small></span>}</button>)}</div>
-        {selectedCard && <div className="selected-card-note"><span>Wybrana karta</span><p>Możesz potraktować ją jako punkt wyjścia do rolki, posta lub karuzeli. Zakres i sposób realizacji dopasujemy do Twojej marki.</p><a className="button button-orange" href="#kontakt">Zapytaj o realizację <ArrowRight size={18}/></a></div>}
+        {selectedCard && <div className="selected-card-note"><span>Wybrana karta</span><p>Chcesz zobaczyć, jak można przełożyć to na Twoją markę? Napisz do mnie.</p><a className="button button-orange" href="#kontakt">Zapytaj o realizację <ArrowRight size={18}/></a></div>}
         <div className="flow-footer"><button className="flow-back" type="button" onClick={back}><ArrowLeft size={17}/> Zmień potrzebę</button><button className="flow-reset" type="button" onClick={reset}><RotateCcw size={16}/> Zacznij od nowa</button></div>
       </div>}
     </div>}
+    <a className="industry-contact-link" href="#kontakt">Masz pomysł? Porozmawiajmy o jego realizacji.</a>
   </section>;
 }

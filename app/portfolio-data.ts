@@ -61,7 +61,7 @@ export const reelPurposes: Record<number,string> = {
   11: 'Przekaz oparty na animowanej typografii', 12: 'Prezentacja społeczności Biz4sis',
   13: 'Relacja z prelekcji na wydarzeniu Polka Pilates', 14: 'Prezentacja mebli na wymiar',
   15: 'Pokazanie detali wnętrza', 16: 'Prezentacja realizacji wnętrzarskiej',
-  17: 'Nowy materiał wideo w portfolio', 18: 'Porady stolarza w formie materiału AI', 19: 'Nowy materiał wideo w portfolio',
+  17: 'Materiał lifestyle do social mediów', 18: 'Porady stolarza w formie materiału AI', 19: 'Pokazanie połączenia kolorów i materiałów w meblach',
 };
 export const postPurposes: Record<number,string> = {
   1: 'Informacja o wyglądzie skóry po zabiegu', 2: 'Komunikacja promocji',
