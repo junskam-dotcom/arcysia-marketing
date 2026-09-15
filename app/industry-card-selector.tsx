@@ -95,7 +95,7 @@ export default function IndustryCardSelector() {
 
     {!started && <div className="industry-tool-start">
       <div><span className="industry-tool-icon"><Sparkles size={21}/></span><h3>Znajdź pomysł, który pasuje do Twojej pracy.</h3><p>Wybierz branżę, wskaż, czego potrzebujesz, i odkryj jedną z trzech kart.</p></div>
-      <button className="button button-dark" type="button" onClick={start}>Wybierz branżę <ArrowRight size={19}/></button>
+      <button className="button button-orange" type="button" onClick={start}>Wybierz branżę <ArrowRight size={19}/></button>
     </div>}
 
     {started && <div className="industry-tool-flow" aria-live="polite">

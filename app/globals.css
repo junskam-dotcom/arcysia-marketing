@@ -124,3 +124,7 @@ section[id]{scroll-margin-top:6.5rem}
 
 /* Orange accents for editorial italic headings. */
 h1 em,h2 em,h3 em{color:var(--orange)}
+
+.services-gallery{margin-top:2.5rem}
+.services-gallery .horizontal-gallery-track{align-items:flex-start}
+.services-gallery .service-card>p{min-height:0}
