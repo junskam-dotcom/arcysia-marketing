@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { ArrowDown, ArrowUpRight, Pause, Play, Mail, Phone } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, Pause, Play, Mail, Phone, Menu, X } from 'lucide-react';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import { marketingServices, marketingWays, steps, faq } from './offer-data';
 import PortfolioGallery from './portfolio-gallery';
@@ -13,6 +13,7 @@ const contactPhoneHref = 'tel:+48510875101';
 
 export default function Home() {
   const [motion,setMotion]=useState(true);
+  const [mobileMenuOpen,setMobileMenuOpen]=useState(false);
   useEffect(()=>{
     const preference=window.matchMedia('(prefers-reduced-motion: reduce)');
     const update=()=>setMotion(!preference.matches);update();preference.addEventListener('change',update);
@@ -24,7 +25,7 @@ export default function Home() {
   },[]);
   return <div className={motion?'site':'site motion-paused'}>
     <a href="#portfolio" className="skip-link">Przejdź do portfolio</a>
-    <header className="site-header"><a className="wordmark" href="#poczatek" aria-label="Arcysia Marketing — początek">arcysia<small>MARKETING</small></a><nav aria-label="Nawigacja główna"><a href="#portfolio">Portfolio</a><a href="#marketing">Oferta</a><a href="#pomysly-dla-branzy">Pomysły dla branży</a><a href="#o-mnie">O mnie</a><a href="#kontakt">Kontakt</a></nav><button className="motion-toggle" onClick={()=>setMotion(!motion)} aria-pressed={!motion} aria-label={motion?'Wstrzymaj animacje':'Włącz animacje'} title={motion?'Wstrzymaj animacje':'Włącz animacje'}>{motion?<Pause size={17}/>:<Play size={17}/>}</button></header>
+    <header className="site-header"><a className="wordmark" href="#poczatek" aria-label="Arcysia Marketing — początek" onClick={()=>setMobileMenuOpen(false)}>arcysia<small>MARKETING</small></a>{mobileMenuOpen && <button className="menu-backdrop" aria-label="Zamknij menu" onClick={()=>setMobileMenuOpen(false)}/>}<nav id="site-navigation" className={mobileMenuOpen ? "site-nav is-open" : "site-nav"} aria-label="Nawigacja główna"><a href="#poczatek" onClick={()=>setMobileMenuOpen(false)}>Start</a><a href="#marketing" onClick={()=>setMobileMenuOpen(false)}>Oferta</a><a href="#pomysly-dla-branzy" onClick={()=>setMobileMenuOpen(false)}>Pomysły dla branży</a><a href="#portfolio" onClick={()=>setMobileMenuOpen(false)}>Realizacje</a><a href="#wspolpraca" onClick={()=>setMobileMenuOpen(false)}>Jak pracuję</a><a href="#o-mnie" onClick={()=>setMobileMenuOpen(false)}>O mnie</a><a href="#kontakt" onClick={()=>setMobileMenuOpen(false)}>Kontakt</a></nav><div className="header-actions"><button className="motion-toggle" onClick={()=>setMotion(!motion)} aria-pressed={!motion} aria-label={motion?'Wstrzymaj animacje':'Włącz animacje'} title={motion?'Wstrzymaj animacje':'Włącz animacje'}>{motion?<Pause size={17}/>:<Play size={17}/>}</button><button className="menu-toggle" onClick={()=>setMobileMenuOpen(!mobileMenuOpen)} aria-expanded={mobileMenuOpen} aria-controls="site-navigation" aria-label={mobileMenuOpen?'Zamknij menu':'Otwórz menu'}>{mobileMenuOpen?<X size={22}/>:<Menu size={22}/>}</button></div></header>
     <main id="poczatek">
       <section className="hero showcase-hero section-pad" aria-labelledby="hero-title">
         <div className="hero-eyebrow"><span>ARCYSIA / PORTFOLIO MARKETINGOWE</span><span>OBRAZ · SŁOWO · RUCH</span></div>
