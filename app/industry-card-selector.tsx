@@ -10,6 +10,8 @@ import {
   type IndustryCard,
 } from './industry-content-data';
 
+import HorizontalGallery from './horizontal-gallery';
+
 type Step = 'industry' | 'need' | 'cards';
 type CustomKind = 'services' | 'products' | 'personal' | 'local';
 
@@ -118,7 +120,7 @@ export default function IndustryCardSelector() {
 
       {step === 'cards' && <div className="industry-step-card cards-step-card">
         <div className="industry-step-heading"><div><span className="eyebrow">KROK 03</span><h3>Wybierz jedną z trzech kart.</h3><p>Każda karta jest dopasowana do branży <strong>{displayIndustry}</strong> i potrzeby <strong>{needLabel.toLowerCase()}</strong>. Kliknij, aby ją odkryć.</p></div><span className="industry-selected-pill">{needLabel}</span></div>
-        <div className="covered-cards">{cards.map((card, index) => <button className={`covered-card${selectedCard === card.id ? ' is-open' : ''}`} key={card.id} type="button" onClick={() => setSelectedCard(card.id)} aria-expanded={selectedCard === card.id}><span className="covered-card-number">0{index + 1}</span>{selectedCard === card.id ? <CardDetails card={card} industry={displayIndustry} needLabel={needLabel}/> : <span className="covered-card-closed"><span className="covered-card-lock">✦</span><strong>Karta do odkrycia</strong><small>Kliknij, aby zobaczyć pomysł</small></span>}</button>)}</div>
+        <HorizontalGallery label="Pomysły dla branży" className="idea-gallery">{cards.map((card, index) => <button className={`covered-card${selectedCard === card.id ? ' is-open' : ''}`} key={card.id} type="button" onClick={() => setSelectedCard(card.id)} aria-expanded={selectedCard === card.id}><span className="covered-card-number">0{index + 1}</span>{selectedCard === card.id ? <CardDetails card={card} industry={displayIndustry} needLabel={needLabel}/> : <span className="covered-card-closed"><span className="covered-card-lock">✦</span><strong>Karta do odkrycia</strong><small>Kliknij, aby zobaczyć pomysł</small></span>}</button>)}</HorizontalGallery>
         {selectedCard && <div className="selected-card-note"><span>Wybrana karta</span><p>Chcesz zobaczyć, jak można przełożyć to na Twoją markę? Napisz do mnie.</p><a className="button button-orange" href="#kontakt">Zapytaj o realizację <ArrowRight size={18}/></a></div>}
         <div className="flow-footer"><button className="flow-back" type="button" onClick={back}><ArrowLeft size={17}/> Zmień potrzebę</button><button className="flow-reset" type="button" onClick={reset}><RotateCcw size={16}/> Zacznij od nowa</button></div>
       </div>}

@@ -77,3 +77,25 @@
 .contact-section .button{white-space:normal;text-align:left}
 @media(max-width:900px){.showcase-copy h1{font-size:clamp(2.7rem,8vw,4.6rem)}.audience-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:650px){.showcase-copy h1{font-size:clamp(2.5rem,10vw,3.8rem)}.audience-copy{grid-template-columns:1fr;gap:1rem}.audience-copy p{font-size:1rem}.audience-list{grid-template-columns:1fr}.showcase-copy .showcase-offer-link{max-width:100%}}
+.horizontal-gallery{min-width:0}
+.horizontal-gallery-controls{display:flex;align-items:center;justify-content:flex-end;gap:1.25rem;margin-bottom:1rem}
+.gallery-progress{width:7rem;height:3px;background:#352c2820;overflow:hidden;border-radius:8px}
+.gallery-progress>span{display:block;width:25%;height:100%;background:var(--espresso);border-radius:8px;transition:transform .15s}
+.horizontal-gallery-track{display:flex;gap:24px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none;padding:4px 0 12px;cursor:grab;align-items:flex-start}
+.horizontal-gallery-track::-webkit-scrollbar{display:none}
+.horizontal-gallery-track>*{flex:0 0 30%;min-width:0;max-width:none;scroll-snap-align:start}
+.horizontal-gallery-track img{user-select:none;-webkit-user-drag:none}
+.horizontal-gallery-track.is-dragging{scroll-snap-type:none;cursor:grabbing;user-select:none}
+.horizontal-gallery-track.is-dragging *{cursor:grabbing!important}
+.horizontal-gallery-track:focus-visible{outline:2px solid var(--espresso);outline-offset:5px;border-radius:8px}
+.horizontal-gallery-track .post-image{aspect-ratio:4/5;border-radius:1rem}
+.horizontal-gallery-track .post-image img{object-fit:contain}
+.horizontal-gallery-track .post-trigger:hover img{transform:none}
+.idea-gallery{margin-top:1.5rem}
+.idea-gallery .covered-card{min-height:20rem;text-align:left}
+@media(max-width:1100px){.horizontal-gallery-track>*{flex-basis:43%}}
+@media(max-width:650px){.horizontal-gallery-track{gap:16px}.horizontal-gallery-track>*{flex-basis:86%;max-width:none}.horizontal-gallery-controls{margin-bottom:.75rem}.horizontal-gallery-controls .gallery-controls button{width:2.75rem;height:2.75rem}.idea-gallery .covered-card{padding:1.1rem}.post-collection+.post-collection{margin-top:2.5rem}}
+@media(prefers-reduced-motion:reduce){.gallery-progress>span{transition:none}}
+.idea-gallery .industry-card-fields{grid-template-columns:1fr}
+.idea-gallery .industry-card-details h4{font-size:1.45rem;overflow-wrap:anywhere}
+.idea-gallery .covered-card.is-open{max-height:38rem;overflow-y:auto;scrollbar-width:thin}
