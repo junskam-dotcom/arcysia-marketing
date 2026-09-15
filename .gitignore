@@ -41,3 +41,4 @@ next-env.d.ts
 /.sites-runtime/
 *.tsbuildinfo
 pnpm-debug.log*
+dist-pages/

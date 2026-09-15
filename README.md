@@ -29,7 +29,20 @@ git commit -m "Opis zmian"
 git push origin main
 ```
 
-Ta aplikacja korzysta z buildu Vinext/Cloudflare, więc GitHub jest miejscem przechowywania kodu i historii zmian. Do uruchomienia produkcyjnego użyj hostingu obsługującego ten build; obecna opublikowana strona działa pod adresem `https://arcysia-marketing-portfolio.arcysia.chatgpt.site/`. Samo włączenie GitHub Pages nie jest tu automatycznie dodane, ponieważ wymagałoby osobnej wersji aplikacji przygotowanej wyłącznie jako statyczny HTML.
+Strona ma osobną wersję dla bezpłatnego GitHub Pages, korzystającą z tych samych komponentów i materiałów. Docelowy adres: https://junskam-dotcom.github.io/arcysia-marketing/.
+
+Jednorazowo w repozytorium otwórz **Settings → Pages → Build and deployment → Source** i wybierz **GitHub Actions**. Po wysłaniu zmian do `main` publikacja uruchomi się automatycznie. Jej wynik znajdziesz w zakładce **Actions**, w zadaniu „Publish portfolio to GitHub Pages”. Możesz też uruchomić je ręcznie przyciskiem **Run workflow**. Zielony wynik zadania `deploy` potwierdza publikację.
+
+Lokalne sprawdzenie wersji GitHub Pages:
+
+```bash
+pnpm build:pages
+pnpm preview:pages
+```
+
+Otwórz adres podany w terminalu ze ścieżką `/arcysia-marketing/`. Gotowe pliki znajdują się w `dist-pages` — nie dodawaj tego folderu do repozytorium, ponieważ GitHub sam go buduje. Konfiguracja `vite.pages.config.ts` określa ścieżkę strony; zmień ją, jeśli zmienisz nazwę repozytorium. Publikacja obejmuje stronę marketingową; link do osobnego portfolio eventowego zachowuje dotychczasowy adres.
+
+Dotychczasowe polecenie `pnpm build` nadal przygotowuje wersję Vinext/Cloudflare. GitHub Pages korzysta wyłącznie z `pnpm build:pages` i nie wymaga kluczy ani płatnych usług.
 
 Ścieżki do zdjęć, plansz i filmów są względne, dzięki czemu materiały nie odwołują się do lokalnego dysku ani do ścieżek `/Users/...`.
 
