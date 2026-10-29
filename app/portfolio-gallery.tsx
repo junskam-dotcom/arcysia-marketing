@@ -5,8 +5,6 @@ import { Dialog, DialogTrigger, DialogContent, DialogTitle, DialogDescription, D
 import { reels, posts, postGroups, reelPurposes, postPurposes, postIndustry } from './portfolio-data';
 import HorizontalGallery from './horizontal-gallery';
 const reelPath = (id: number, ext: string) => `media/reel-${String(id).padStart(2, '0')}.${ext}`;
-const mixedReelOrder = [17, 13, 19, 1, 7, 15, 4, 10, 14, 2, 8, 18, 5, 16, 3, 9, 11, 6, 12];
-const mixedReels = mixedReelOrder.map(id => reels.find(item => item.id === id)).filter((item): item is typeof reels[number] => Boolean(item));
 function ProjectFacts({ industry, purpose, scope }: { industry:string;purpose:string;scope:string }) {
   return <dl className="project-facts"><div><dt>Marka / branża</dt><dd>{industry}</dd></div><div><dt>Cel materiału</dt><dd>{purpose}</dd></div><div><dt>Mój zakres</dt><dd>{scope}</dd></div></dl>;
 }
@@ -37,14 +35,28 @@ function PostCard({ item }: { item: typeof posts[number] }) {
     <DialogContent className="media-dialog image-dialog" showCloseButton={false}><div className="dialog-heading"><div><DialogTitle>{item.title}</DialogTitle><DialogDescription>{item.note} · projekt portfolio</DialogDescription></div><DialogClose className="close-dialog" aria-label="Zamknij grafikę"><X size={22}/></DialogClose></div><img className="full-image" src={item.src} alt={item.alt} width={1080} height={item.id<=2?1440:1350}/><ProjectFacts industry={postIndustry(item.id)} purpose={postPurposes[item.id]} scope="Przygotowanie grafiki do social mediów"/></DialogContent>
   </Dialog></article>;
 }
+function PortfolioCategory({name,items,graphics,motion}:{name:string;items:typeof reels;graphics:typeof posts;motion:boolean}) {
+  const [open,setOpen]=useState(false);
+  return <details className="portfolio-category" onToggle={event=>setOpen(event.currentTarget.open)}><summary><h3>{name}</h3><span>{items.length > 0 ? `${items.length} wideo` : ''}{items.length > 0 && graphics.length > 0 ? ' · ' : ''}{graphics.length > 0 ? `${graphics.length} grafik` : ''}</span><span className="category-chevron" aria-hidden="true">⌄</span></summary>{open && <div className="category-content">{items.length>0 && <><h4>Rolki i wideo</h4><HorizontalGallery label={`${name} — rolki`}>{items.map(item=><ReelCard key={item.id} item={item} motion={motion}/>)}</HorizontalGallery></>}{graphics.length>0 && <><h4>Grafiki i posty</h4><HorizontalGallery label={`${name} — grafiki`}>{graphics.map(item=><PostCard key={item.id} item={item}/>)}</HorizontalGallery></>}</div>}</details>;
+}
 export default function PortfolioGallery({motion}:{motion:boolean}) {
   return <section className="portfolio-section section-pad" id="portfolio" aria-labelledby="portfolio-title">
     <div className="section-heading reveal"><span className="eyebrow">01 / PORTFOLIO MARKETINGOWE</span><div className="heading-row"><h2 id="portfolio-title">Pomysły, które<br/>stały się <em>treścią.</em></h2><p>Rolki i grafiki dla marek z branży beauty, stolarskiej, biznesowej i nie tylko.</p></div></div>
-    <div id="rolki" className="gallery-toolbar"><h3>Rolki i wideo <span>{mixedReels.length}</span></h3></div>
-    <HorizontalGallery label="Rolki i wideo">{mixedReels.map(item=><ReelCard key={item.id} item={item} motion={motion}/>)}</HorizontalGallery>
-    <p className="portfolio-note">Twoja marka ma głos. Ja pomagam go pokazać i usłyszeć.</p>
-    <div id="posty" className="posts-heading"><h3>Grafiki i posty <span>{posts.length}</span></h3></div>
-    {postGroups.map((group,index)=><div key={group.name} className="post-collection"><div className="collection-heading"><div><span className="eyebrow">SERIA {String(index+1).padStart(2,'0')}</span><h4>{group.name}</h4><p>{group.subtitle}</p></div><span className="collection-count">{group.ids.length} {group.ids.length<5?'prace':'prac'}</span></div><HorizontalGallery label={group.name}>{posts.filter(item=>group.ids.includes(item.id)).map(item=><PostCard key={item.id} item={item}/>)}</HorizontalGallery></div>)}
+    <p className="portfolio-note">Wybierz kategorię, żeby zobaczyć rolki i grafiki.</p>
+    <div id="rolki" className="portfolio-categories">
+    {[
+      {name:'Biznes', category:'BIZNES', postIds:[]},
+      {name:'Beauty', category:'BEAUTY', postIds:postGroups[0].ids},
+      {name:'Firma stolarska', category:'FIRMA STOLARSKA', postIds:postGroups[1].ids},
+      {name:'Marka osobista', category:'MARKA OSOBISTA', postIds:postGroups[2].ids},
+      {name:'Kancelaria', category:'KANCELARIA', postIds:postGroups[3].ids},
+      {name:'Lifestyle', category:'LIFESTYLE', postIds:[]},
+      {name:'Wellness', category:'WELLNESS', postIds:[]},
+      {name:'Wydarzenia', category:'WYDARZENIA', postIds:[]},
+      {name:'Wideo', category:'WIDEO', postIds:[]},
+    ].map(group=><PortfolioCategory key={group.name} name={group.name} items={reels.filter(item=>item.category===group.category)} graphics={posts.filter(item=>group.postIds.includes(item.id))} motion={motion}/>)}
+    </div>
+    <span id="posty"/>
     <div className="portfolio-cta"><h3>Nie wiesz, od czego zacząć?<br/><em>Opowiedz mi o swojej marce.</em></h3><a className="button button-orange" href="#kontakt">Zapytaj o współpracę <ArrowRight size={20}/></a></div>
   </section>;
 }

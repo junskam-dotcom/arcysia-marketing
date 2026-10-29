@@ -18,6 +18,10 @@ export const reels = [
   { id: 17, title: 'Lifestyle', category: 'LIFESTYLE', note: 'Materiał wideo do social mediów' },
   { id: 18, title: 'Porady stolarza (materiał AI)', category: 'FIRMA STOLARSKA', note: 'Firma stolarska · wideo z wykorzystaniem AI' },
   { id: 19, title: 'Firma stolarska', category: 'FIRMA STOLARSKA', note: 'Meble na wymiar · materiał wideo' },
+  { id: 20, title: 'Biznes · rolka 11', category: 'BIZNES', note: 'Materiał wideo do social mediów' },
+  { id: 21, title: 'Biznes · rolka 9', category: 'BIZNES', note: 'Materiał wideo do social mediów' },
+  { id: 22, title: 'Biznes · rolka 5', category: 'BIZNES', note: 'Materiał wideo do social mediów' },
+  { id: 23, title: 'Biznes · rolka 1', category: 'BIZNES', note: 'Materiał wideo do social mediów' },
 ];
 export const posts = [
   { id: 1, title: 'Beauty, od pierwszego spojrzenia.', note: 'Grafika informacyjna · RF Double Tite', alt: 'Grafika porównująca skórę przed i tuż po zabiegu RF Double Tite', src: 'media/post-01.webp' },
@@ -53,6 +57,7 @@ export const postGroups = [
 ];
 
 export const reelPurposes: Record<number,string> = {
+  20: 'Komunikacja biznesowa', 21: 'Komunikacja biznesowa', 22: 'Komunikacja biznesowa', 23: 'Komunikacja biznesowa',
   1: 'Prezentacja zabiegu beauty', 2: 'Przybliżenie zabiegu beauty',
   3: 'Prezentacja kwiaciarni całodobowej', 4: 'Prezentacja partnerów spotkania',
   5: 'Relacja ze spotkania', 6: 'Komunikacja spotkania Biz4sis w Poznaniu',
