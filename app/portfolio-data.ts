@@ -9,7 +9,7 @@ export const reels = [
   { id: 8, title: 'Wiedza, którą warto dzielić', category: 'BIZNES', note: 'Wideo eksperckie' },
   { id: 9, title: 'Porozmawiajmy o biznesie', category: 'BIZNES', note: 'Wideo eksperckie' },
   { id: 10, title: 'Złap swój rytm', category: 'WELLNESS', note: 'Joga · wideo' },
-  { id: 11, title: 'Od pierwszej sekundy', category: 'WIDEO', note: 'Rolka z animowaną typografią' },
+  { id: 11, title: 'Od pierwszej sekundy', category: 'WYDARZENIA', note: 'Rolka z animowaną typografią' },
   { id: 12, title: 'Razem znaczy więcej', category: 'WYDARZENIA', note: 'Biz4sis · społeczność' },
   { id: 13, title: 'Wideo z prelekcji na wydarzeniu Polka Pilates', category: 'WELLNESS', note: 'Polka Pilates · prelekcja na wydarzeniu' },
   { id: 14, title: 'Wnętrza w ruchu', category: 'FIRMA STOLARSKA', note: 'Meble na wymiar' },
@@ -18,10 +18,13 @@ export const reels = [
   { id: 17, title: 'Lifestyle', category: 'LIFESTYLE', note: 'Materiał wideo do social mediów' },
   { id: 18, title: 'Porady stolarza (materiał AI)', category: 'FIRMA STOLARSKA', note: 'Firma stolarska · wideo z wykorzystaniem AI' },
   { id: 19, title: 'Firma stolarska', category: 'FIRMA STOLARSKA', note: 'Meble na wymiar · materiał wideo' },
-  { id: 20, title: 'Biznes · rolka 11', category: 'BIZNES', note: 'Materiał wideo do social mediów' },
-  { id: 21, title: 'Biznes · rolka 9', category: 'BIZNES', note: 'Materiał wideo do social mediów' },
-  { id: 22, title: 'Biznes · rolka 5', category: 'BIZNES', note: 'Materiał wideo do social mediów' },
-  { id: 23, title: 'Biznes · rolka 1', category: 'BIZNES', note: 'Materiał wideo do social mediów' },
+  { id: 20, title: 'Ton komunikacji marki', category: 'BIZNES', note: 'Materiał wideo do social mediów' },
+  { id: 21, title: 'Pomysł pod lupą AI', category: 'BIZNES', note: 'Materiał wideo do social mediów' },
+  { id: 22, title: 'Biznes w codziennym kadrze', category: 'BIZNES', note: 'Materiał wideo do social mediów' },
+  { id: 23, title: 'Technologia w biznesie', category: 'BIZNES', note: 'Materiał wideo do social mediów' },
+  { id: 24, title: 'Kuchnia w szarości i drewnie', category: 'FIRMA STOLARSKA', note: 'Meble na wymiar · prezentacja kuchni' },
+  { id: 25, title: 'Sprytny patent do kuchni', category: 'FIRMA STOLARSKA', note: 'Meble na wymiar · rozwiązania kuchenne' },
+  { id: 26, title: 'IKEA czy meble na wymiar?', category: 'FIRMA STOLARSKA', note: 'Porównanie rozwiązań do kuchni' },
 ];
 export const posts = [
   { id: 1, title: 'Beauty, od pierwszego spojrzenia.', note: 'Grafika informacyjna · RF Double Tite', alt: 'Grafika porównująca skórę przed i tuż po zabiegu RF Double Tite', src: 'media/post-01.webp' },
@@ -57,6 +60,7 @@ export const postGroups = [
 ];
 
 export const reelPurposes: Record<number,string> = {
+  24: 'Prezentacja zabudowy kuchennej', 25: 'Pokazanie praktycznego rozwiązania w kuchni', 26: 'Porównanie mebli gotowych i na wymiar',
   20: 'Komunikacja biznesowa', 21: 'Komunikacja biznesowa', 22: 'Komunikacja biznesowa', 23: 'Komunikacja biznesowa',
   1: 'Prezentacja zabiegu beauty', 2: 'Przybliżenie zabiegu beauty',
   3: 'Prezentacja kwiaciarni całodobowej', 4: 'Prezentacja partnerów spotkania',

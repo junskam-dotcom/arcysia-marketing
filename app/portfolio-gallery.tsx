@@ -53,7 +53,6 @@ export default function PortfolioGallery({motion}:{motion:boolean}) {
       {name:'Lifestyle', category:'LIFESTYLE', postIds:[]},
       {name:'Wellness', category:'WELLNESS', postIds:[]},
       {name:'Wydarzenia', category:'WYDARZENIA', postIds:[]},
-      {name:'Wideo', category:'WIDEO', postIds:[]},
     ].map(group=><PortfolioCategory key={group.name} name={group.name} items={reels.filter(item=>item.category===group.category)} graphics={posts.filter(item=>group.postIds.includes(item.id))} motion={motion}/>)}
     </div>
     <span id="posty"/>
